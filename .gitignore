@@ -1,0 +1,280 @@
+# BS Motos - Git Ignore File (Docker-First)
+
+# ==============================================================================
+# ARCHIVOS SENSIBLES Y SECRETOS (DOCKER-FIRST)
+# ==============================================================================
+
+# Variables de entorno con API keys
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+
+# API Keys y configuraciones sensibles
+api_keys.txt
+config_secrets.json
+*.key
+*.pem
+
+# ==============================================================================
+# ARCHIVOS ELIMINADOS EN DOCKER-FIRST
+# ==============================================================================
+
+# Virtual environments (ya no usamos)
+.venv/
+venv/
+env/
+ENV/
+
+# Poetry (ya no usamos)
+poetry.lock
+pyproject.toml
+
+# Archivos de desarrollo personal
+test.ipynb
+scratch_*.py
+exploratory_*.ipynb
+
+# ==============================================================================
+# ARCHIVOS DE DATOS GRANDES
+# ==============================================================================
+
+# Datasets originales (mantener solo archivos de prueba)
+inputs/tabla_1.csv
+inputs/dataset_completo.csv
+inputs/*_full.csv
+inputs/*_complete.csv
+
+# Archivos de salida generados
+output_final.csv
+*_output.csv
+outputs/*.csv
+outputs/*.json
+
+# Archivos temporales de procesamiento
+temp_*.csv
+temp_*.json
+*_temp.*
+*_backup.*
+
+# ==============================================================================
+# PYTHON
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Poetry
+poetry.lock
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# ==============================================================================
+# STREAMLIT
+# ==============================================================================
+
+# Streamlit cache
+.streamlit/
+
+# ==============================================================================
+# DOCKER
+# ==============================================================================
+
+# Docker build context optimization
+.dockerignore.old
+docker-compose.override.yml
+docker-compose.prod.yml
+
+# ==============================================================================
+# IDEs Y EDITORES
+# ==============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ==============================================================================
+# SISTEMA OPERATIVO
+# ==============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Linux
+*~
+
+# ==============================================================================
+# LOGS Y ARCHIVOS TEMPORALES
+# ==============================================================================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary folders
+tmp/
+temp/
+
+# ==============================================================================
+# ARCHIVOS DE DOCUMENTACIÓN TEMPORALES
+# ==============================================================================
+
+# Archivos de documentación backup
+README_backup.md
+README_old.md
+NOTES.md
+TODO.txt
+notes.txt
+
+# ==============================================================================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO BS MOTOS
+# ==============================================================================
+
+# Archivos de prueba temporales
+test_*.csv
+test_*.json
+debug_*.csv
+sample_*.csv
+
+# Respaldos de procesamiento
+backup_*.csv
+*_backup_*.csv
+
+# Archivos de análisis exploratorio
+exploratory_*.ipynb
+analysis_*.ipynb
+scratch_*.py
+
+# Archivos de configuración locales
+local_config.py
+local_settings.py
+
+# Archivos de caché de OpenAI
+openai_cache/
+.cache/
+cache/
+
+# ==============================================================================
+# MANTENER ESTOS ARCHIVOS (NO IGNORAR)
+# ==============================================================================
+
+# Mantener archivos de prueba pequeños
+!inputs/tabla_test.csv
+!inputs/sample_*.csv
+
+# Mantener archivos de configuración ejemplo
+!.env.example
+!config_example.json
+
+# Mantener documentación importante
+!README.md
+!LICENSE
+!requirements.txt
+!Dockerfile
+!docker-compose.yml

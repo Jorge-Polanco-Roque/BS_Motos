@@ -1,0 +1,141 @@
+# BS Motos - Docker Ignore (Docker-First Optimizado)
+
+# ==============================================================================
+# ARCHIVOS OBSOLETOS EN DOCKER-FIRST
+# ==============================================================================
+
+# Scripts Python locales (ya no usamos)
+run_dashboard.py
+local_*.py
+
+# Virtual environments (Docker maneja dependencias)
+.venv/
+venv/
+env/
+ENV/
+.virtualenv
+
+# Poetry/pip locales (solo requirements.txt)
+poetry.lock
+pyproject.toml
+pip-compile*
+Pipfile*
+
+# Archivos de desarrollo personal
+test.ipynb
+scratch_*.py
+exploratory_*.ipynb
+debug_*.py
+temp_*.py
+
+# ==============================================================================
+# ARCHIVOS DEL SISTEMA
+# ==============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Windows  
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+[Dd]esktop.ini
+
+# Linux
+*~
+
+# ==============================================================================
+# DESARROLLO Y BUILD
+# ==============================================================================
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.sublime-*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
+
+# ==============================================================================
+# DOCKER Y GIT
+# ==============================================================================
+
+# Docker contexto (mantenemos los Dockerfiles principales)
+.dockerignore.old
+
+# Git
+.git/
+.gitignore
+
+# ==============================================================================
+# DATOS Y OUTPUTS
+# ==============================================================================
+
+# Datasets grandes (mantener solo archivos de prueba)
+inputs/tabla_1.csv
+inputs/*_full.csv
+inputs/*_complete.csv
+
+# Archivos generados
+output_final.csv
+outputs/*.csv
+outputs/*.json
+processed_data/*.csv
+
+# Archivos temporales de procesamiento  
+temp_*.csv
+*_backup.*
+*_temp.*
+
+# ==============================================================================
+# CONFIGURACIÓN SENSIBLE
+# ==============================================================================
+
+# Variables de entorno
+.env
+.env.local
+.env.production
+
+# Credenciales
+api_keys.txt
+config_secrets.json
+*.key
+*.pem
+
+# ==============================================================================
+# MANTENER ESTOS ARCHIVOS (NO IGNORAR)
+# ==============================================================================
+
+# Mantener archivos esenciales
+!Dockerfile
+!docker-compose.yml
+!start.sh
+!requirements.txt
+!.env.example
+
+# Mantener archivos de prueba pequeños
+!inputs/tabla_test.csv
+
+# Mantener documentación
+!README.md
+!DOCKER_COMMANDS.md
+!LICENSE

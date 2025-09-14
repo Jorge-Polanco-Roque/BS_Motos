@@ -1,0 +1,76 @@
+# Docker Compose para BS Motos Survey Analytics - Docker-First Approach
+version: '3.8'
+
+services:
+  # Servicio principal - Dashboard interactivo (NO requiere OpenAI API para visualización)
+  bs-motos-dashboard:
+    build: .
+    container_name: bs_motos_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-not_required_for_dashboard}
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    volumes:
+      - ./inputs:/app/inputs
+      - ./outputs:/app/outputs
+      - ./output_final.csv:/app/output_final.csv:ro
+      # Montar directorio completo para acceder a múltiples archivos procesados
+      - .:/app/data:ro
+    networks:
+      - bs-motos-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Servicio para procesamiento de pipeline (solo cuando se necesite)
+  bs-motos-pipeline:
+    build: .
+    container_name: bs_motos_pipeline
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./inputs:/app/inputs
+      - ./outputs:/app/outputs
+    networks:
+      - bs-motos-network
+    profiles: ["pipeline"]
+    command: ["python", "pipeline.py", "inputs/tabla_test.csv", "outputs/output_final.csv"]
+
+  # Servicio para desarrollo con código en tiempo real
+  bs-motos-dev:
+    build: .
+    container_name: bs_motos_dev
+    ports:
+      - "8502:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_SERVER_HEADLESS=true
+    volumes:
+      - .:/app  # Montar código fuente para desarrollo
+      - ./inputs:/app/inputs
+      - ./outputs:/app/outputs
+    networks:
+      - bs-motos-network
+    profiles: ["dev"]
+    command: ["streamlit", "run", "dashboard.py", "--server.address", "0.0.0.0"]
+
+networks:
+  bs-motos-network:
+    driver: bridge
+
+volumes:
+  bs_motos_data:
+    driver: local
