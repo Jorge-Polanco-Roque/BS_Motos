@@ -1,7 +1,7 @@
 # BS Motos Survey Analytics - Dependencias de Python
 
 # Core data processing
-pandas==2.1.3
+pandas==2.3.2
 numpy==1.24.3
 
 # OpenAI API integration
