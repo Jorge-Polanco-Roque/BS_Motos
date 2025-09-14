@@ -295,7 +295,7 @@ def create_responses_dashboard(responses_data, question_names):
     selected_questions = st.sidebar.multiselect(
         "Seleccionar Preguntas:",
         list(question_names.values()),
-        default=list(question_names.values())[:3]
+        default=list(question_names.values())
     )
     
     # Filtro por confianza

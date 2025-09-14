@@ -243,6 +243,8 @@ debug_*.csv
 sample_*.csv
 
 # Respaldos de procesamiento
+output_final.csv
+tabla_1.csv
 backup_*.csv
 *_backup_*.csv
 

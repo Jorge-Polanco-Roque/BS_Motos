@@ -1,0 +1,7 @@
+# Revisar los errores al procesar el pipeline
+    - No son la mayoría de los casos, pero ver por qué pasó, y qué dan por respuesta
+        * Error en formato, parece algo aleatorio
+        * Una solución sería que reintente X número de veces
+    - Ahora la opción A es la opción default
+        * Qué % fue? = 3% de error en parsing de json
+    - Hubo un costo de 4.75 USD de tokens

@@ -143,7 +143,7 @@ class CSVToJSONConverter:
             # ============================================================================
             # Para procesar TODA la tabla, cambiar TEST_MODE = False
             # Para procesar solo las primeras 20 filas, mantener TEST_MODE = True
-            TEST_MODE = True
+            TEST_MODE = False
             
             if TEST_MODE:
                 df = df.head(20)  # Solo primeras 20 observaciones para pruebas
