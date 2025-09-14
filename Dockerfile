@@ -1,5 +1,5 @@
 # Dockerfile para BS Motos Survey Analytics
-FROM python:3.9-slim
+FROM python:3.13-slim
 
 # Configurar variables de entorno
 ENV PYTHONUNBUFFERED=1
