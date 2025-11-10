@@ -17,7 +17,7 @@ plotly==5.17.0
 
 # System and utilities
 pathlib2==2.3.7.post1
-typing-extensions==4.8.0
+typing-extensions==4.15.0
 
 # Development and optional (comentadas por defecto)
 # jupyter==1.0.0
